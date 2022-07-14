@@ -1,0 +1,23 @@
+version: "5.2"
+
+services:
+  db:
+    image: mysql
+    ports:
+      - 3306:3306
+      #    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: EUWO321093721jsahejwabne132145!@
+    volumes:
+      - ./data-volume:/var/lib/mysql
+  phpmyadmin:
+      image: phpmyadmin
+      # restart: always
+      ports:
+        - 8080:80
+      environment:
+        PMA_HOST: database-db-1
+        PMA_ARBITRARY: 1
+        PMA_PORT: 3306:3306
+volumes:
+  data-volume: 
