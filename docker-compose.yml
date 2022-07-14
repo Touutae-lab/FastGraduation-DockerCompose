@@ -19,5 +19,14 @@ services:
         PMA_HOST: database-db-1
         PMA_ARBITRARY: 1
         PMA_PORT: 3306:3306
+  web:
+    build: "." 
+    ports:
+      - "8000:5000"
+    volumes:
+      - ./src:/code:ro
+  redis:
+      image: "redis:alpine"
+
 volumes:
   data-volume: 
