@@ -1,32 +1,36 @@
-version: "5.2"
+version: "3.8"
 
 services:
   db:
-    image: mysql
+    image: mariadb:10.8-jammy
     ports:
       - 3306:3306
-      #    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: EUWO321093721jsahejwabne132145!@
     volumes:
       - ./data-volume:/var/lib/mysql
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+
   phpmyadmin:
-      image: phpmyadmin
-      # restart: always
-      ports:
-        - 8080:80
-      environment:
-        PMA_HOST: database-db-1
-        PMA_ARBITRARY: 1
-        PMA_PORT: 3306:3306
-  web:
-    build: "." 
+    image: phpmyadmin:5.2-apache
     ports:
-      - "8000:5000"
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306:3306
+    depends_on:
+      - db
+
+  web:
+    build: ./app/
+    ports:
+      - 8000:5000
     volumes:
-      - ./src:/code:ro
+      - ./app/src:/code:ro
+        
   redis:
-      image: "redis:alpine"
+    image: "redis:7.0-alpine"
 
 volumes:
   data-volume: 
+
