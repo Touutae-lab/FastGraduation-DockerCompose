@@ -26,7 +26,8 @@ services:
     ports:
       - 8000:5000
     volumes:
-      - ./app/src:/code/src
+      - ./app/src:/code/src:ro
+      - ./app/docs:/code/docs
     environment:
       # remove this for production mode
       FLASK_ENV: development
