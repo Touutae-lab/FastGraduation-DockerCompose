@@ -8,6 +8,7 @@ COPY . .
 ENV FLASK_APP=src/app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
+RUN pip install sphinx
 RUN apk add --no-cache gcc musl-dev linux-headers py3-sphinx
 RUN python setup.py install build
 
