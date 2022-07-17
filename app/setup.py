@@ -1,5 +1,4 @@
 from setuptools import setup
-from sphinx.setup_command import BuildDoc
 
 
 def readme():
