@@ -32,16 +32,32 @@ services:
     networks:
       - app_network
 
-  web:
+  api:
     build: ./app/
     ports:
       - 8000:5000
     volumes:
       - ./app/src:/code/src:ro
-      - ./app/docs:/code/docs
+      - ./app/docs:/code/docs:ro
     environment:
       # remove this for production mode
       FLASK_ENV: development
+    networks:
+      - app_network
+
+  frontend:
+    build: ./frontend/
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/pages:/app/pages:ro
+      - ./frontend/styles:/app/styles:ro
+      - ./frontend/public:/app/public:ro
+    # remove these lines for production
+    command: yarn run dev
+    environment:
+      NODE_ENV: development
+    # -----
     networks:
       - app_network
 
