@@ -1,6 +1,6 @@
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/Touutae-lab/FastGraduation-API.git
+	url = git@github.com:Touutae-lab/FastGraduation-API.git
 [submodule "app"]
 	path = app
-	url = https://github.com/Touutae-lab/FastGraduation-DockerCompose.git
+	url = git@github.com:NickP-real/fast-graduation-FrontEnd.git
