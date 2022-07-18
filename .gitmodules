@@ -1,0 +1,6 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/NickP-real/fast-graduation-FrontEnd.git
+[submodule "app"]
+	path = app
+	url = https://github.com/Touutae-lab/FastGraduation-API.git

@@ -1,0 +1,91 @@
+version: "3.8"
+
+services:
+  db:
+    image: mariadb:10.8-jammy
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: EUWO321093721jsahejwabne132145!@
+    volumes:
+      - ./data-volume:/var/lib/mysql
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+    networks:
+      - app_network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+  phpmyadmin:
+    image: phpmyadmin:5.2-apache
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306:3306
+    depends_on:
+      - db
+    networks:
+      - app_network
+
+  api:
+    build: ./app/
+    ports:
+      - 8000:5000
+    volumes:
+      - ./app/src:/code/src:ro
+      - ./app/docs:/code/docs:ro
+    environment:
+      # remove this for production mode
+      FLASK_ENV: development
+    networks:
+      - app_network
+
+  frontend:
+    build: ./frontend/
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/pages:/app/pages:ro
+      - ./frontend/styles:/app/styles:ro
+      - ./frontend/public:/app/public:ro
+    # remove these lines for production
+    command: yarn run dev
+    environment:
+      NODE_ENV: development
+    # -----
+    networks:
+      - app_network
+
+  supertokens:
+    image: registry.supertokens.io/supertokens/supertokens-mysql
+    depends_on:
+      - db
+    ports:
+      - 3567:3567
+    environment:
+      MYSQL_CONNECTION_URI: mysql://supertokens_users:Acb3ds32Lq@db:3306/supertokens
+    networks:
+      - app_network
+    restart: unless-stopped
+    healthcheck:
+      test: >
+        bash -c 'exec 3<>/dev/tcp/127.0.0.1/3567 && echo -e "GET /hello HTTP/1.1\r\nhost: 127.0.0.1:3567\r\nConnection: close\r\n\r\n" >&3 && cat <&3 | grep "Hello"'
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  redis:
+    image: "redis:7.0-alpine"
+    networks:
+      - app_network
+
+volumes:
+  data-volume: 
+
+networks:
+  app_network:
+    driver: bridge
