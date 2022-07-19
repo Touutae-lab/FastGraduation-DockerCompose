@@ -34,7 +34,7 @@ Most of the configurations (e.g. MySQL Root password, etc.) are defined in
 [`docker-compose.yml`](https://github.com/Touutae-lab/FastGraduation-DockerCompose/blob/master-default/docker-compose.yml)
 However, some specific settings depend on their platform. 
 Our [web server](https://github.com/NickP-real/fast-graduation-FrontEnd), for 
-example, was developed using (Next.js)[https://nextjs.org/].
+example, was developed using [Next.js](https://nextjs.org/).
 
 Everything should work fine then you should have `data-volume` directories
 
