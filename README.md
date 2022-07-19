@@ -4,7 +4,7 @@ This is a Docker Compose file as a part of the Fast Graduation for CS CMU projec
 
 ## Setup
 
-You need to install Docker before use [Instruction](https://docs.docker.com/desktop/install/mac-install/))
+You need to install Docker before use [Instruction](https://docs.docker.com/desktop/install/mac-install/)
 
 1. We use [Docker Desktop](https://docs.docker.com/desktop) for our deployment. 
 So make sure to have it installed in advanced.
