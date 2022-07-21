@@ -83,14 +83,7 @@ services:
     networks:
       - app_network
 
-  docs:
-    build:
-      context: .
-      dockerfile: Dockerfile-docs
-    ports:
-      - 9000:8000
-    networks:
-      - app_network
+
 
 volumes:
   data-volume: 
