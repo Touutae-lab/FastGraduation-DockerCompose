@@ -37,13 +37,14 @@ services:
     ports:
       - 8000:5000
     volumes:
-      - ./app/src:/code/src:ro
+      - ./app/fastgrad_api:/code/fastgrad_api:ro
       - ./app/docs:/code/docs:ro
     environment:
       # remove this for production mode
       FLASK_ENV: development
     networks:
       - app_network
+    restart: unless-stopped
 
   frontend:
     build: ./frontend/
