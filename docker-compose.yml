@@ -44,6 +44,7 @@ services:
       FLASK_ENV: development
     networks:
       - app_network
+    restart: unless-stopped
 
   frontend:
     build: ./frontend
