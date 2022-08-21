@@ -20,6 +20,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `fastgrad`
 --
+CREATE DATABASE IF NOT EXISTS fastgrad
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci;
+
+USE fastgrad;
 
 -- --------------------------------------------------------
 
@@ -275,11 +280,6 @@ CREATE TABLE `enrollment` (
 --
 -- Dumping data for table `enrollment`
 --
-
-INSERT INTO `enrollment` (`id`, `student_id`, `course_id`, `category_id`, `term`, `year`, `grade`, `grade_no`) VALUES
-(1, 630510999, 229223, 9, 1, 2021, 'B+', '3.5'),
-(2, 630510888, 229223, 9, 1, 2021, 'A', '4');
-
 -- --------------------------------------------------------
 
 --
@@ -544,11 +544,6 @@ CREATE TABLE `student` (
 --
 -- Dumping data for table `student`
 --
-
-INSERT INTO `student` (`user_id`, `student_id`, `academic_year`, `advisor_id`) VALUES
-('0e713193-0d1e-11ed-9a08-0242ac140004', 630510888, 2020, '72788988-0d1e-11ed-9a08-0242ac140004'),
-('0e714a5b-0d1e-11ed-9a08-0242ac140004', 630510999, 2020, '72788988-0d1e-11ed-9a08-0242ac140004');
-
 -- --------------------------------------------------------
 
 --
@@ -570,12 +565,6 @@ CREATE TABLE `user` (
 --
 -- Dumping data for table `user`
 --
-
-INSERT INTO `user` (`user_id`, `type`, `email`, `fname_th`, `mname_th`, `lname_th`, `fname_en`, `mname_en`, `lname_en`) VALUES
-('0e713193-0d1e-11ed-9a08-0242ac140004', 'student', 'mister_a@localhost', 'เอ', NULL, 'วิทย์คอม', 'A', NULL, 'Comsci'),
-('0e714a5b-0d1e-11ed-9a08-0242ac140004', 'student', 'mister_b@localhost', 'บี', NULL, 'วิทย์คอม', 'B', NULL, 'Comsci'),
-('72788988-0d1e-11ed-9a08-0242ac140004', 'advisor', 'advizor@localhost', 'ที่ปรึกษา', NULL, 'วิทย์คอม', 'Advisor', NULL, 'Comsci');
-
 --
 -- Indexes for dumped tables
 --
