@@ -280,6 +280,7 @@ CREATE TABLE `enrollment` (
 --
 -- Dumping data for table `enrollment`
 --
+
 -- --------------------------------------------------------
 
 --
@@ -432,7 +433,6 @@ INSERT INTO `prerequisite` (`course_id`, `precourse_id`, `pregroup_id`) VALUES
 (204482, 208263, 22),
 (204482, 208263, 22),
 (204482, 208269, 22);
-
 -- --------------------------------------------------------
 
 --
@@ -471,7 +471,6 @@ INSERT INTO `prerequisite_group` (`id`, `inclusion_type`) VALUES
 (20, 'any'),
 (21, 'all'),
 (22, 'any');
-
 -- --------------------------------------------------------
 
 --
@@ -565,6 +564,7 @@ CREATE TABLE `user` (
 --
 -- Dumping data for table `user`
 --
+
 --
 -- Indexes for dumped tables
 --
