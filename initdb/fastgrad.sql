@@ -3,11 +3,6 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306:3306
-<<<<<<< HEAD
--- Generation Time: Aug 05, 2022 at 07:54 AM
-=======
--- Generation Time: Aug 16, 2022 at 01:51 PM
->>>>>>> main
 -- Server version: 10.8.3-MariaDB-1:10.8.3+maria~jammy
 -- PHP Version: 8.0.21
 
@@ -24,16 +19,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `fastgrad`
 --
-<<<<<<< HEAD
-CREATE DATABASE IF NOT EXISTS `fastgrad` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `fastgrad`;
-=======
 CREATE DATABASE IF NOT EXISTS fastgrad
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_general_ci;
 
 USE fastgrad;
->>>>>>> main
 
 -- --------------------------------------------------------
 
@@ -61,7 +51,6 @@ CREATE TABLE `course` (
 INSERT INTO `course` (`id`, `is_pseudo`, `name_th`, `name_en`, `credit`, `description_th`, `description_en`, `term_1`, `term_2`, `term_s`) VALUES
 (1101, 0, 'ภาษาอังกฤษพื้นฐาน 1', 'Fundamental English 1', 3, 'การสื่อสารภาษาอังกฤษ เพื่อการปฏิสัมพันธ์ในชีวิตประจำวัน ทักษะการฟัง พูด อ่านและเขียนในระดับเบื้องต้น ในบริบททางสังคมและวัฒนธรรมที่หลากหลายเพื่อการเรียนรู้ตลอดชีวิต', 'Communication in English for everyday interactions. Basic listening, speaking, reading and writing skills in various social and cultural contexts for life-long learning.', 1, 1, 1),
 (1102, 0, 'ภาษาอังกฤษพื้นฐาน 2', 'Fundamental English 2', 3, 'การสื่อสารภาษาอังกฤษเพื่อการปฏิสัมพันธ์ในชีวิตประจำวัน ทักษะการฟัง พูด อ่านและเขียนในระดับที่ซับซ้อนขึ้นในบริบททางสังคมและวัฒนธรรมที่หลากหลายเพื่อการเรียนรู้ตลอดชีวิต', 'Communication in English for everyday interactions. More advanced listening, speaking, reading and writing skills in various social and cultural contexts for life-long learning.', 1, 1, 1),
-<<<<<<< HEAD
 (204111, 0, 'การเขียนโปรแกรมเบื้องต้น', 'Fundamentals of Programming', 3, 'วิทยาการคอมพิวเตอร์ในชีวิตประจำวัน การแปลภาษา ระบบเลขฐานสอง อัลกอริทึมและการออกแบบ แนวคิดการเขียนโปรแกรมพื้นฐาน ระบบชนิดข้อมูลพื้นฐาน โครงสร้างข้อมูลพื้นฐาน โครงสร้างข้อมูลพื้นฐานและอัลกอริทึม และวิธีการพัฒนาโปรแกรม', 'Computer science in daily life, language translation, binary system, algorithm and designs, fundamental programming concepts, basic type system, fundamental data structure, fundamental data structure and algorithms, and development methods.', 1, 0, 0),
 (208250, 0, 'วิธีเชิงสถิติสำหรับวิทยาศาสตร์ข้อมูล', 'Statistical Methods for Data Science', 3, 'ความรู้เบื้องต้นเกี่ยวกับวิธีเชิงสถิติ การเก็บรวบรวมข้อมูล การวิเคราะห์เชิงค้นหา การแจกแจงปรกติและการทดสอบการแจกแจงปรกติ การอนุมานทางสถิติเกี่ยวกับค่าเฉลี่ยของประชากร การวิเคราะห์ความแปรปรวน การวิเคราะห์การถดถอยและสหสัมพันธ์', 'Introduction to statistical methods, collecting data, exploratory data analysis, normal distribution and normality tests, inference for population mean, analysis of variance, regression and correlation analysis.', 1, 1, 0),
 (208263, 0, 'สถิติเบื้องต้น', 'Elementary Statistics', 3, 'ทบทวนความรู้พื้นฐานเกี่ยวกับสถิติ ความน่าจะเป็น และการแจกแจงความน่าจะเป็น การประมาณค่า และการทดลองสมมุติฐานของพารามิเตอร์ของประชากร โดยใช้ Z-test, t-test, x2-test, and F-test การประยุกต์ไคว์-สแควร์ การวิเคราะห์ความแปรปรวน การถดถอยและสหสัมพันธ์', 'Review of basic statistical knowledge. Probability and probability distribution. Estimation and test of hypothesis concerning parameters of populations by using Z-test, t-test, x2 test and F-test. Application of Chi-square. Analysis of variance. Regression and correlation.', 1, 1, 0),
@@ -218,7 +207,6 @@ INSERT INTO `course` (`id`, `is_pseudo`, `name_th`, `name_en`, `credit`, `descri
 (851103, 0, 'ชีวิตและสังคมผ่านสื่อ', 'Life and Society through Media', 3, 'การวิเคราะห์และวิจารณ์ความหมายและคุณค่าของชีวิต ในมิติของปรัชญา ประวัติศาสตร์ สังคม วัฒนธรรม การเมือง และเศรษฐกิจ ผ่านสื่อ ได้แก่ ภาพยนตร์ วิทยุโทรทัศน์ หนังสือพิมพ์ นิตยสาร รวมทั้ง นวนิยาย เรื่องสั้นและหนังสือการ์ตูน', 'Critical analysis of the meaning and value of life in philosophical, historical, social, cultural, political, and economic dimensions through media : film, radio, television, newspaper, magazine, as well as novel, short story, and comic book.', 0, 1, 0),
 (951100, 0, 'ชีวิตสมัยใหม่กับแอนนิเมชัน', 'Modern Life and Animation', 3, 'ความเข้าใจเชิงประวัติศาสตร์แอนนิเมชันและภาพยนตร์แอนนิเมชัน วิวัฒนาการ และรูปแบบแอนนิเมชันในปัจจุบัน แนวคิดและกระบวนการสร้างแอนนิเมชันเบื้องต้น เช่น ขั้นเตรียมการผลิต การผลิตและหลังการผลิต การใช้ไฟล์ในงานแอนนิเมชันต่างๆ เพื่อนำเสนอผลงานของนักศึกษา การออกแบบตัวละครแอนนิเมชันเบื้องต้น', 'Understanding in animation works and animated cinema. Evolution and forms of animation at present day. Idea and basic process of animation production, for instance, pre-production, production, and post-production. File utilization in presenting the animation projects of students. And the basic design of animation character.', 1, 1, 0),
 (953111, 0, 'ซอฟต์แวร์สำหรับชีวิตประจำวัน', 'Software for Everyday Life', 3, 'บทบาทของซอฟต์แวร์ในชีวิตประจำวัน องค์ประกอบของฮาร์ดแวร์ องค์ประกอบของซอฟต์แวร์ องค์ประกอบของระบบออนไลน์ ซอฟต์แวร์อรรถประโยชน์เพื่อชีวิตสมัยใหม่ ซอฟต์แวร์เพื่อการประมวลผลคำ ซอฟต์แวร์เพื่อการประมวลตารางทำการ ซอฟต์แวร์เพื่อการนำเสนอ ซอฟต์แวร์เพื่อการจัดการภาพและภาพเคลื่อนไหว ความปลอดภัย จริยธรรม และกฎหมายบนคอมพิวเตอร์และอินเทอร์เน็ต', 'Roles of software in everyday life. Hardware essentials. Software essentials. Online system essentials. Utility software for modern life. Word processing software. Spread sheet processing software. Presentation software. Image and animation software. Security, ethics and law on computer and internet.', 1, 1, 0);
->>>>>>> main
 
 -- --------------------------------------------------------
 
@@ -301,14 +289,6 @@ CREATE TABLE `enrollment` (
 --
 -- Dumping data for table `enrollment`
 --
-
-<<<<<<< HEAD
-INSERT INTO `enrollment` (`id`, `student_id`, `course_id`, `category_id`, `term`, `year`, `grade`, `grade_no`) VALUES
-(1, 630510999, 229223, 9, 1, 2021, 'B+', '3.5'),
-(2, 630510888, 229223, 9, 1, 2021, 'A', '4');
-
-=======
->>>>>>> main
 -- --------------------------------------------------------
 
 --
@@ -402,8 +382,6 @@ CREATE TABLE `prerequisite` (
   `pregroup_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-<<<<<<< HEAD
-=======
 --
 -- Dumping data for table `prerequisite`
 --
@@ -463,7 +441,6 @@ INSERT INTO `prerequisite` (`course_id`, `precourse_id`, `pregroup_id`) VALUES
 (204482, 208263, 22),
 (204482, 208263, 22),
 (204482, 208269, 22);
->>>>>>> main
 -- --------------------------------------------------------
 
 --
@@ -475,8 +452,6 @@ CREATE TABLE `prerequisite_group` (
   `inclusion_type` enum('all','any') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-<<<<<<< HEAD
-=======
 --
 -- Dumping data for table `prerequisite_group`
 --
@@ -504,7 +479,6 @@ INSERT INTO `prerequisite_group` (`id`, `inclusion_type`) VALUES
 (20, 'any'),
 (21, 'all'),
 (22, 'any');
->>>>>>> main
 -- --------------------------------------------------------
 
 --
@@ -541,7 +515,6 @@ INSERT INTO `prerequisite_inclusive` (`course_id`, `inclusion_type`) VALUES
 (206428, 'any'),
 (206463, 'all');
 
->>>>>>> main
 -- --------------------------------------------------------
 
 --
@@ -580,14 +553,6 @@ CREATE TABLE `student` (
 --
 -- Dumping data for table `student`
 --
-<<<<<<< HEAD
-
-INSERT INTO `student` (`user_id`, `student_id`, `academic_year`, `advisor_id`) VALUES
-('0e713193-0d1e-11ed-9a08-0242ac140004', 630510888, 2020, '72788988-0d1e-11ed-9a08-0242ac140004'),
-('0e714a5b-0d1e-11ed-9a08-0242ac140004', 630510999, 2020, '72788988-0d1e-11ed-9a08-0242ac140004');
-
-=======
->>>>>>> main
 -- --------------------------------------------------------
 
 --
@@ -610,14 +575,6 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-<<<<<<< HEAD
-INSERT INTO `user` (`user_id`, `type`, `email`, `fname_th`, `mname_th`, `lname_th`, `fname_en`, `mname_en`, `lname_en`) VALUES
-('0e713193-0d1e-11ed-9a08-0242ac140004', 'student', 'mister_a@localhost', 'เอ', NULL, 'วิทย์คอม', 'A', NULL, 'Comsci'),
-('0e714a5b-0d1e-11ed-9a08-0242ac140004', 'student', 'mister_b@localhost', 'บี', NULL, 'วิทย์คอม', 'B', NULL, 'Comsci'),
-('72788988-0d1e-11ed-9a08-0242ac140004', 'advisor', 'advizor@localhost', 'ที่ปรึกษา', NULL, 'วิทย์คอม', 'Advisor', NULL, 'Comsci');
-
-=======
->>>>>>> main
 --
 -- Indexes for dumped tables
 --
