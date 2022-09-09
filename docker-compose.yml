@@ -41,7 +41,7 @@ services:
       - ./app/docs:/code/docs:ro
     environment:
       # remove this for production mode
-      FLASK_ENV: development
+      FLASK_DEBUG: 1
     networks:
       - app_network
     restart: unless-stopped
@@ -55,7 +55,7 @@ services:
       - ./frontend/styles:/app/styles:ro
       - ./frontend/public:/app/public:ro
     # remove these lines for production
-    command: yarn run dev
+    command: pnpm run dev
     environment:
       NODE_ENV: development
     # -----
@@ -79,10 +79,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-  redis:
-    image: "redis:7.0-alpine"
-    networks:
-      - app_network
 
 volumes:
   data-volume: 
