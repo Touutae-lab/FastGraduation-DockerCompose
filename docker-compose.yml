@@ -4,9 +4,9 @@ services:
   db:
     image: mariadb:10.8-jammy
     ports:
-      - 3306:3306
+      - 3306:${MYSQL_PORT}
     environment:
-      MYSQL_ROOT_PASSWORD: EUWO321093721jsahejwabne132145!@
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - ./data-volume:/var/lib/mysql
       - ./initdb:/docker-entrypoint-initdb.d:ro
@@ -25,7 +25,7 @@ services:
     ports:
       - 8080:80
     environment:
-      PMA_HOST: db
+      PMA_HOST: ${MYSQL_HOST}
       PMA_PORT: 3306:3306
     depends_on:
       - db
@@ -69,7 +69,7 @@ services:
     ports:
       - 3567:3567
     environment:
-      MYSQL_CONNECTION_URI: mysql://supertokens_users:Acb3ds32Lq@db:3306/supertokens
+      MYSQL_CONNECTION_URI: "mysql://${MYSQL_SUPERTOKENS_USER}:${MYSQL_SUPERTOKENS_PASS}@${MYSQL_HOST}:${MYSQL_PORT}/$MYSQL_SUPERTOKENS_DB"
     networks:
       - app_network
     restart: unless-stopped
