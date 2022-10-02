@@ -37,14 +37,24 @@ services:
     ports:
       - 8000:5000
     volumes:
-      - ./app/fastgrad_api:/code/fastgrad_api:ro
-      - ./app/docs:/code/docs:ro
+      - ./app/fastgrad_api:/app/fastgrad_api:ro
+      - ./app/docs:/app/docs:ro
+      - ./app/html:/app/html:ro
     environment:
-      # remove this for production mode
+      # remove this in production mode
       FLASK_DEBUG: 1
+      FLASK_ENV: development
     networks:
       - app_network
+    depends_on:
+      - db
+      - supertokens
     restart: unless-stopped
+    # to run in a development mode
+    command: ["flask", "run", "--reload"]
+    # to directly debug from cli
+    #command: ["tail", "-f", "/dev#/null"]
+
 
   frontend:
     build: ./frontend/
@@ -56,6 +66,9 @@ services:
       - ./frontend/public:/app/public:ro
     # remove these lines for production
     command: pnpm run dev
+    depends_on:
+      - db
+      - supertokens
     environment:
       NODE_ENV: development
     # -----
