@@ -35,7 +35,7 @@ services:
   api:
     build: ./app/
     ports:
-      - 8000:5000
+      - 8000:8000
     volumes:
       - ./app/fastgrad_api:/app/fastgrad_api:ro
       - ./app/docs:/app/docs:ro
@@ -51,7 +51,7 @@ services:
       - supertokens
     restart: unless-stopped
     # to run in a development mode
-    command: ["flask", "run", "--reload"]
+    command: ["flask", "run", "--reload", "--host", "0.0.0.0", "--port", "8000"]
     # to directly debug from cli
     #command: ["tail", "-f", "/dev#/null"]
 
