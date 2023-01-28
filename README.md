@@ -52,7 +52,7 @@ in those files automatically on the first run of the container.
 
 ### Default Ports
 
-* API gateway at  [http://localhost:8000](http://localhost:8000/)
+* API Gatway at  [http://localhost:8000](http://localhost:8000/)
 * PhpMyAdmin at [http://localhost:8080](http://localhost:8080/)
 * MariaDB at [http://localhost:3306](http://localhost:3306/)
 * SuperToken at [http://localhost:3567](http://localhost:3567/)
