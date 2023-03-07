@@ -50,15 +50,15 @@ services:
       - supertokens
     restart: unless-stopped
     # to run in a development mode
-    #command: ["flask", "run", "--reload"]
+    command: ["flask", "run", "--reload"]
     # to directly debug from cli
-    command: ["tail", "-f", "/dev/null"]
+    #command: ["tail", "-f", "/dev/null"]
     environment:
-      MYSQL_INTERNAL_HOST: $MYSQL_INTERNAL_HOST
-      MYSQL_INTERNAL_PORT: $MYSQL_INTERNAL_PORT
-      MYSQL_API_USER: $MYSQL_API_USER
-      MYSQL_API_PASS: $MYSQL_API_PASS
-      MYSQL_DB: $MYSQL_DB
+      MYSQL_INTERNAL_HOST: ${MYSQL_INTERNAL_HOST}
+      MYSQL_INTERNAL_PORT: ${MYSQL_INTERNAL_PORT}
+      MYSQL_API_USER: ${MYSQL_API_USER}
+      MYSQL_API_PASS: ${MYSQL_API_PASS}
+      MYSQL_DB: ${MYSQL_DB}
 
 
   frontend:
@@ -88,6 +88,10 @@ services:
       - ${SUPERTOKENS_EXTERNAL_PORT}:${SUPERTOKENS_INTERNAL_PORT}
     environment:
       MYSQL_CONNECTION_URI: "mysql://${MYSQL_SUPERTOKENS_USER}:${MYSQL_SUPERTOKENS_PASS}@${MYSQL_INTERNAL_HOST}:${MYSQL_INTERNAL_PORT}/${MYSQL_SUPERTOKENS_DB}"
+      MYSQL_HOST: ${MYSQL_INTERNAL_HOST}
+      MYSQL_PORT: ${MYSQL_INTERNAL_PORT}
+      MYSQL_USER: ${MYSQL_SUPERTOKENS_USER}
+      MYSQL_PASSWORD: ${MYSQL_SUPERTOKENS_PASS}
     networks:
       - fastgrad_network
     restart: unless-stopped
@@ -103,4 +107,4 @@ volumes:
 
 networks:
   fastgrad_network:
-    driver: bridge
+    # driver: bridge
