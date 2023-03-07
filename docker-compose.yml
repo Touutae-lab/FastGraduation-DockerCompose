@@ -39,10 +39,6 @@ services:
       - ./app/fastgrad_api:/app/fastgrad_api:ro
       - ./app/docs:/app/docs:ro
       - ./app/html:/app/html:ro
-    environment:
-      # remove this in production mode
-      FLASK_DEBUG: 1
-      FLASK_ENV: development
     networks:
       - fastgrad_network
     depends_on:
@@ -50,7 +46,7 @@ services:
       - supertokens
     restart: unless-stopped
     # to run in a development mode
-    command: ["flask", "run", "--reload"]
+    command: ["flask", "run", "--host", "0.0.0.0", "--port", "${BACKEND_INTERNAL_PORT}", "--reload", "--debug"]
     # to directly debug from cli
     #command: ["tail", "-f", "/dev/null"]
     environment:
@@ -59,6 +55,7 @@ services:
       MYSQL_API_USER: ${MYSQL_API_USER}
       MYSQL_API_PASS: ${MYSQL_API_PASS}
       MYSQL_DB: ${MYSQL_DB}
+      FLASK_DEBUG: 1
 
 
   frontend:
@@ -107,4 +104,4 @@ volumes:
 
 networks:
   fastgrad_network:
-    # driver: bridge
+    driver: bridge
